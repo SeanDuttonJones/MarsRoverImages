@@ -11,6 +11,9 @@
 # production
 /build
 
+# secret keys
+/src/nasa_api_info.json
+
 # misc
 .DS_Store
 .env.local

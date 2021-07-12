@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import PhotoCard from "./PhotoCard";
 import LoadButton from "./LoadButton";
 
+import nasa_api from "./nasa_api_info.json"
+
 import fakeData from "./test_data.json";
 
 class PhotoCardGrid extends Component {
@@ -16,8 +18,8 @@ class PhotoCardGrid extends Component {
     }
   
     componentDidMount() {
-      //this.getData();
-      this.getFakeData();
+      this.getData();
+      //this.getFakeData();
     }
     
     componentDidUpdate(prevProps) {
@@ -37,7 +39,7 @@ class PhotoCardGrid extends Component {
         this.setState({photos: photos});
       });
   
-      var url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.props.rover}/photos?camera=${this.props.camera}&sol=${this.props.sol}&page=${this.state.page}&api_key=DEMO_KEY`;
+      var url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.props.rover}/photos?camera=${this.props.camera}&sol=${this.props.sol}&page=${this.state.page}&api_key=${nasa_api.key}`;
       
       console.log(this.state.page);
   
