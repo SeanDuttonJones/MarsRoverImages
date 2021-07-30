@@ -1,6 +1,6 @@
 import "./App.css";
 
-import RoverImageFilter from "./RoverImageFilter";
+// import RoverImageFilter from "./RoverImageFilter";
 import PhotoCardGrid from "./PhotoCardGrid";
 
 import React, { Component } from "react";
@@ -12,8 +12,8 @@ class App extends Component {
 
     this.state = {
         rover: "curiosity",
-        camera: "MAST",
-        sol: 1500,
+        camera: "all",
+        sol: 1,
         page: 1
       }
   }
@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return <div>
-        <RoverImageFilter onClick={this.updateImageGrid}/>
+        {/* <RoverImageFilter onClick={this.updateImageGrid}/> */}
         <PhotoCardGrid {...this.state}/>
       </div>
   }
