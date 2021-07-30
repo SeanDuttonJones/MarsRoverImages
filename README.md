@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/static/v1?label=build&message=passing&color=brightgreen)]
+![Build Status](https://img.shields.io/static/v1?label=build&message=passing&color=brightgreen)
 
 # Mars Rover Images
 
