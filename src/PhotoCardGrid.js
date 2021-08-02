@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import PhotoCard from "./PhotoCard";
-
 import nasa_api from "./nasa_api_info.json"
+
+import PhotoCard from "./PhotoCard";
+import ScrollTo from "./ScrollTo";
 
 // import fakeData from "./test_data.json";
 
@@ -12,7 +13,7 @@ class PhotoCardGrid extends Component {
   
       this.state = {
         error: null,
-        sol: 0,
+        sol: 1,
         page: 1,
         max_page: 1,
         photos: []
@@ -21,13 +22,15 @@ class PhotoCardGrid extends Component {
       this.missionManifest = null;
       this.solIndex = new Map();
 
+      this.scrollToRef = React.createRef();
+
       // This binding is necessary to make `this` work in the callback
       this.handleScroll = this.handleScroll.bind(this);
     }
   
     componentDidMount() {
       this.getMissionManifest();
-      this.getPhotos(); // TODO: may have to wait for getMissionManifest() to finish
+      this.getPhotos();
 
       document.addEventListener("scroll", this.handleScroll);
     }
@@ -150,7 +153,8 @@ class PhotoCardGrid extends Component {
   
       return (
         <div>
-          <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:m-10 m-4">
+          <ScrollTo elRef={this.scrollToRef}/>
+          <div ref={this.scrollToRef} class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:m-10 m-4">
             {listPhotos}
           </div>
         </div>
